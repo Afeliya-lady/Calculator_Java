@@ -6,10 +6,13 @@ public class Main {
 
   public static void main(String[] args) {
 
-    System.out.println("\nТестовое задание КАЛЬКУЛЯТОР\n\nДопустимо введение двух значений от 1 до 10, операции + - / *. Все символы должны быть разделены пробелом");
+    System.out.println("\nТестовое задание КАЛЬКУЛЯТОР\n\nДопустимо введение двух целых значений от 1 до 10, операции + - / *. Все символы должны быть разделены пробелом");
     
+    //бесконечный цикл
+    for ( ; ; ) {
     // передаем введенную строку в метод Calc (прописан далее) и печатаем результат
     System.out.println(calc(scanner.nextLine())); 
+    }
   }
 
   // метод Calc
@@ -20,7 +23,7 @@ public class Main {
     String[] parse = input.split(" ");
     // проверяем количество введенных значений (по условию три значения - два числа  и символ операции)
     if (parse.length != 3) {
-      System.out.println("invalid input");
+      System.out.println("throws Exception");
       System.exit (1);
     }
     // присваиваем числовые значения ранее созданным переменным
@@ -28,7 +31,7 @@ public class Main {
     secondNumber = Integer.parseInt(parse[2]);
     // проверяем на включение чисел в диапазон от 1 до 10, иначе выводим ошибку
     if (firstNumber < 1 || firstNumber > 10 || secondNumber < 1 || secondNumber > 10){
-      System.out.println("invalid input");
+      System.out.println("throws Exception");
       System.exit (1);
     }
     // присваиваем переменной значение введенного символа операции
@@ -38,13 +41,13 @@ public class Main {
       case '+':
          return String.valueOf(firstNumber + secondNumber);
       case '-':
-         return  String.valueOf(firstNumber - secondNumber);
+        return  String.valueOf(firstNumber - secondNumber);
       case '/':
           return String.valueOf(firstNumber / secondNumber);
       case '*':
           return String.valueOf(firstNumber * secondNumber);
       default:
-          System.out.println("invalid input");
+          System.out.println("throws Exception");
           System.exit (1);
           return "";
     }
